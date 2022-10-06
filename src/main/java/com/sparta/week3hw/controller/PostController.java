@@ -37,7 +37,6 @@ public class PostController {
         Optional<Post> post = postRepository.findById(id);
         // 패스워드를 비교하여 일치하면 삭제가능, 불일치하면 오류메시지 : 구글 검색을 통해 구현 코드를 알아냄.
         if (post.isPresent()) {
-            System.out.println("post.get().getPassword() : " + post.get().getPassword() + " requestDto.getPassword() : " + requestDto.getPassword());
             if (post.get().getPassword().equals(requestDto.getPassword())) {
                 postRepository.deleteById(id);
             } else {
@@ -53,7 +52,6 @@ public class PostController {
         Optional<Post> post = postRepository.findById(id);
         // 패스워드를 비교하여 일치하면 수정가능, 불일치하면 오류메시지 : 구글 검색을 통해 구현 코드를 알아냄.
         if (post.isPresent()) {
-            System.out.println("post.get().getPassword() : " + post.get().getPassword() + " requestDto.getPassword() : " + requestDto.getPassword());
             if (post.get().getPassword().equals(requestDto.getPassword())) {
                 postService.update(id, requestDto);
             } else {
